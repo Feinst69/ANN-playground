@@ -163,21 +163,7 @@ Pratique générale :
 0.3 ou 0.5 dans les couches profondes pour éviter le sur-apprentissage, particulièrement pour les grands modèles ou ensembles de données complexes.
 
 
-5. Learning rate (Taux d’apprentissage)
-Le learning rate détermine la taille des étapes faites lors de la mise à jour des poids pendant l’entraînement.
-
-Bonnes pratiques :
-Taux d’apprentissage fixe : Le taux d’apprentissage doit être suffisamment bas pour que le modèle converge de manière stable mais pas trop faible pour éviter un long entraînement.
-Valeur initiale : 0.001 pour la plupart des optimisateurs comme Adam.
-Pour SGD, un taux de 0.01 à 0.1 est couramment utilisé.
-Réduction du learning rate :
-Utiliser des techniques comme la réduction du taux d’apprentissage lors de l’atteinte d’un plateau (ex. : ReduceLROnPlateau en Keras).
-Pratique générale :
-0.001 pour Adam et ajustez en fonction des performances.
-0.01 à 0.1 pour SGD, surtout si vous utilisez des techniques comme le momentum.
-
-
-6. Nombre de couches cachées
+5. Nombre de couches cachées
 Le nombre de couches cachées influence la capacité du réseau à apprendre des représentations complexes.
 
 Bonnes pratiques :
@@ -188,7 +174,7 @@ Commencer avec 2-3 couches pour les réseaux simples.
 Si nécessaire, augmenter progressivement jusqu’à 10-20 couches pour des tâches complexes.
 
 
-7. Optimizer (Optimiseur)
+6. Optimizer (Optimiseur)
 L’optimiseur détermine comment les poids sont mis à jour en fonction des gradients calculés.
 
 Bonnes pratiques :
@@ -207,3 +193,16 @@ Taux d’apprentissage recommandé : 0.001.
 Pratique générale :
 Adam avec un taux de 0.001 pour commencer, sauf si vous avez des raisons spécifiques d'utiliser un autre optimiseur.
 Si vous utilisez SGD, envisagez d’ajouter momentum pour améliorer la convergence.
+
+7. Learning rate (Taux d’apprentissage)
+Le learning rate détermine la taille des étapes faites lors de la mise à jour des poids pendant l’entraînement.
+
+Bonnes pratiques :
+Taux d’apprentissage fixe : Le taux d’apprentissage doit être suffisamment bas pour que le modèle converge de manière stable mais pas trop faible pour éviter un long entraînement.
+Valeur initiale : 0.001 pour la plupart des optimisateurs comme Adam.
+Pour SGD, un taux de 0.01 à 0.1 est couramment utilisé.
+Réduction du learning rate :
+Utiliser des techniques comme la réduction du taux d’apprentissage lors de l’atteinte d’un plateau (ex. : ReduceLROnPlateau en Keras).
+Pratique générale :
+0.001 pour Adam et ajustez en fonction des performances.
+0.01 à 0.1 pour SGD, surtout si vous utilisez des techniques comme le momentum.
