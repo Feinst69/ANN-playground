@@ -5,6 +5,13 @@
 # .%%..%%..%%%%%%..%%..%%..%%..%%...%%%%...%%...%%...%%%%...%%%%%...%%%%%%..%%%%%%.
 # .................................................................................
 
+# Libraries
+from keras.models import Sequential
+from keras.layers import Dense
+from keras.optimizers import Adam
+from keras.utils import to_categorical
+
+# Class
 class KerasModel:
     def __init__(self, input_dim, layers, activations, optimizer='adam', learning_rate=0.01):
         """
