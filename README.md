@@ -1,6 +1,6 @@
 # ANN-playground
 
-## :poop: :bug:
+# :poop: :bug: :bulb: :lipstick: :bento: :coffin:
 
 ## Veille Technique
 
