@@ -75,4 +75,44 @@ class MLP:
             'dW2': dW2,
             'db2': db2
         }
-     
+    
+    def fit(self, X, y):
+        """Entraîne le réseau de neurones."""
+        train_loss = []
+        train_acc = []
+
+        for i in tqdm(range(self.n_iter)):
+            activations = self.forward_propagation(X)
+            A2 = activations['A2']
+
+            # Calcul des métriques
+            loss = log_loss(y.flatten(), A2.flatten())
+            train_loss.append(loss)
+            
+            y_pred = self.predict(X)
+            acc = accuracy_score(y.flatten(), y_pred.flatten())
+            train_acc.append(acc)
+
+            # Mise à jour des paramètres
+            gradients = self.back_propagation(X, y, activations)
+            self.update(gradients)
+
+        # Affichage des courbes de performance
+        plt.figure(figsize=(12, 4))
+        plt.subplot(1, 2, 1)
+        plt.plot(train_loss, label='Loss')
+        plt.title('Courbe de perte')
+        plt.legend()
+        plt.subplot(1, 2, 2)
+        plt.plot(train_acc, label='Accuracy')
+        plt.title('Courbe de précision')
+        plt.legend()
+        plt.show()
+
+    def evaluate(self, X, y):
+        """Évalue les performances du réseau sur un ensemble de test."""
+        y_pred = self.predict(X)
+        accuracy = accuracy_score(y.flatten(), y_pred.flatten())
+        return accuracy 
+    
+
