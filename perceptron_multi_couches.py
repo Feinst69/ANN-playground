@@ -127,6 +127,6 @@ class MLP:
         """Évalue les performances du réseau sur un ensemble de test."""
         y_pred = self.predict(X)
         accuracy = accuracy_score(y.flatten(), y_pred.flatten())
-        return accuracy 
+        return accuracy
     
 
