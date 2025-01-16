@@ -1,7 +1,8 @@
 import numpy as np
-from sklearn.metrics import log_loss, accuracy_score
-from tqdm import tqdm
 import matplotlib.pyplot as plt
+from sklearn.datasets import make_blobs, make_circles
+from sklearn.metrics import accuracy_score, log_loss
+from tqdm import tqdm
 
 class MLP:
     def __init__(self, n0, n1, n2, learning_rate=0.1, n_iter=1000):
@@ -36,7 +37,7 @@ class MLP:
         } 
     
 
-    def forward_propagation(X, self):
+    def forward_propagation(self, X):
         W1 = self.parametres['W1']
         b1 = self.parametres['b1']
         W2 = self.parametres['W2']
@@ -76,6 +77,19 @@ class MLP:
             'db2': db2
         }
     
+    def update(self, gradients):
+        """Met à jour les paramètres du réseau."""
+        self.parametres['W1'] -= self.learning_rate * gradients['dW1']
+        self.parametres['b1'] -= self.learning_rate * gradients['db1']
+        self.parametres['W2'] -= self.learning_rate * gradients['dW2']
+        self.parametres['b2'] -= self.learning_rate * gradients['db2']
+
+    def predict(self, X):
+        """Fait des prédictions sur les données X."""
+        activations = self.forward_propagation(X)
+        A2 = activations['A2']
+        return A2 >= 0.5
+
     def fit(self, X, y):
         """Entraîne le réseau de neurones."""
         train_loss = []
