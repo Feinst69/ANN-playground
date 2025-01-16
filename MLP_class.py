@@ -49,6 +49,20 @@ class MLP:
 
         return gradients
 
+    def _update(self, gradients):
+        C = len(self.parametres) // 2
+
+        for c in range(1, C + 1):
+            self.parametres['W' + str(c)] -= self.learning_rate * gradients['dW' + str(c)]
+            self.parametres['b' + str(c)] -= self.learning_rate * gradients['db' + str(c)]
+
+    def predict(self, X):
+        activations = self._forward_propagation(X)
+        C = len(self.parametres) // 2
+        Af = activations['A' + str(C)]
+        return Af >= 0.5   
+    
+    
     
 
 
