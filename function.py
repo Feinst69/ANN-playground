@@ -11,6 +11,7 @@ from keras.layers import Dense
 from keras.optimizers import Adam
 import matplotlib.pyplot as plt
 
+
 # Class
 class KerasModel:
     def __init__(self,
