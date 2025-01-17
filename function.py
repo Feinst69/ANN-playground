@@ -11,13 +11,12 @@ from keras.layers import Dense
 from keras.optimizers import Adam
 import matplotlib.pyplot as plt
 
-
 # Class
 class KerasModel:
     def __init__(self,
                  input_dim: int,
                  layers: list[tuple[int, str]],
-                 learning_rate: float = 0.01):
+                 learning_rate: float = 0.001):
         """
         Initialize the KerasModel with input dimensions, layer configuration, and learning rate.
         
