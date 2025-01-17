@@ -2,7 +2,7 @@
 
 # :poop: :bug: :bulb: :lipstick: :bento: :coffin:
 
-# :coffin: :ambulance: :goal_net: :wheelchair: :hammer:   
+# :coffin: :boom: :ambulance: :goal_net: :wheelchair: :hammer: :building_construction: :construction_worker:   
 
 ## Veille Technique
 
