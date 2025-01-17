@@ -61,8 +61,37 @@ class MLP:
         C = len(self.parametres) // 2
         Af = activations['A' + str(C)]
         return Af >= 0.5   
+
+    def fit(self, X, y):
+        training_history = np.zeros((int(self.n_iter), 2))
+        C = len(self.parametres) // 2
+
+        for i in tqdm(range(self.n_iter)):
+            activations = self._forward_propagation(X)
+            gradients = self._back_propagation(y, activations)
+            self._update(gradients)
+            Af = activations['A' + str(C)]
+
+            # Calculate log loss and accuracy
+            training_history[i, 0] = log_loss(y.flatten(), Af.flatten())
+            y_pred = self.predict(X)
+            training_history[i, 1] = accuracy_score(y.flatten(), y_pred.flatten())
+
+        # Plot learning curve
+        plt.figure(figsize=(12, 4))
+        plt.subplot(1, 2, 1)
+        plt.plot(training_history[:, 0], label='Train Loss')
+        plt.legend()
+        plt.subplot(1, 2, 2)
+        plt.plot(training_history[:, 1], label='Train Accuracy')
+        plt.legend()
+        plt.show()
+
+        return training_history    
     
     
+    
+
     
 
 
