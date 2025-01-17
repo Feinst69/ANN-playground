@@ -15,18 +15,20 @@ import matplotlib.pyplot as plt
 class KerasModel:
     def __init__(self,
                  input_dim: int,
-                 layers: list[tuple[int, str]]):
+                 layers: list[tuple[int, str]],
+                 learning_rate: float = 0.01):
         """
-        Initialize the KerasModel with input dimensions and layer configuration.
+        Initialize the KerasModel with input dimensions, layer configuration, and learning rate.
         
         :param input_dim: int, number of input features
         :param layers: list of tuples, where each tuple contains the number of neurons and activation function for a layer
+        :param learning_rate: float, learning rate for the optimizer
         """
         self.model = Sequential()
         self.model.add(Dense(layers[0][0], input_dim=input_dim, activation=layers[0][1]))
         for neurons, activation in layers[1:]:
             self.model.add(Dense(neurons, activation=activation))
-        self.model.compile(optimizer=Adam(), loss='binary_crossentropy', metrics=['accuracy'])
+        self.model.compile(optimizer=Adam(learning_rate=learning_rate), loss='binary_crossentropy', metrics=['accuracy'])
 
     def train(self,
               X_train: 'array-like',
