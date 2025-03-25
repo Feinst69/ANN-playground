@@ -28,29 +28,23 @@ def compare_feature_lists(*lists):
     list2 = ['feature3', 'feature4', 'feature5', 'feature6']
     list3 = ['feature2', 'feature4', 'feature7']
 
-    in_all, in_at_least_two, in_only_one = compare_feature_lists(list1, list2, list3)
-    print("Elements in all lists:", in_all)
-    print("Elements in at least two lists:", in_at_least_two)
-    print("Elements in only one list:", in_only_one)
-
-    renvoie
-
-    Elements in all lists: ['feature4']
-    Elements in at least two lists: ['feature2', 'feature3', 'feature4']
-    Elements in only one list: ['feature1', 'feature5', 'feature6', 'feature7']
-
+    result = compare_feature_lists(list1, list2, list3)
+    # Returns something like:
+    # {
+    #     1: ['feature1', 'feature5', 'feature6', 'feature7'],
+    #     2: ['feature2', 'feature3'],
+    #     3: ['feature4']
+    # }
     """
     # Flatten the list of lists and count occurrences of each element
     all_elements = [item for sublist in lists for item in sublist]
     element_counts = Counter(all_elements)
 
-    # Elements in all lists
-    in_all_lists = [item for item, count in element_counts.items() if count == len(lists)]
+    # Create dictionary with count as key and list of features as value
+    result = {}
+    for item, count in element_counts.items():
+        if count not in result:
+            result[count] = []
+        result[count].append(item)
 
-    # Elements in at least two lists
-    in_at_least_two_lists = [item for item, count in element_counts.items() if count >= 2]
-
-    # Elements in only one list
-    in_only_one_list = [item for item, count in element_counts.items() if count == 1]
-
-    return in_all_lists, in_at_least_two_lists, in_only_one_list
+    return result
