@@ -109,3 +109,26 @@ class KerasModel:
         """
         from keras.models import load_model
         self.model = load_model(filename)
+
+    # Ajoute model.plot_accuracy() et model.plot_loss()
+    def plot_accuracy(self):
+        """
+        Plot the accuracy of the model.
+        """
+        import matplotlib.pyplot as plt
+        plt.plot(self.history.history['accuracy'])
+        plt.title('Model Accuracy')
+        plt.ylabel('Accuracy')
+        plt.xlabel('Epoch')
+        plt.show()
+
+    def plot_loss(self):
+        """
+        Plot the loss of the model.
+        """
+        import matplotlib.pyplot as plt
+        plt.plot(self.history.history['loss'])
+        plt.title('Model Loss')
+        plt.ylabel('Loss')
+        plt.xlabel('Epoch')
+        plt.show()
