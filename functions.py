@@ -139,3 +139,6 @@ class KerasModel:
         Return the history of the model.
         """
         return self.history.history
+    
+    def hello(self):
+        print("Hello, I am a KerasModel object!")
