@@ -50,7 +50,7 @@ class KerasModel:
         else:
             raise ValueError("Currently only 'adam' optimizer is supported.")
         
-        model.compile(optimizer=optimizer, loss='categorical_crossentropy', metrics=['accuracy'])
+        model.compile(optimizer=optimizer, loss='binary_crossentropy', metrics=['accuracy'])
         
         return model
 
