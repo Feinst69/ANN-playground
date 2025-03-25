@@ -132,3 +132,10 @@ class KerasModel:
         plt.ylabel('Loss')
         plt.xlabel('Epoch')
         plt.show()
+
+   # function for history
+    def get_history(self):
+        """
+        Return the history of the model.
+        """
+        return self.history.history
