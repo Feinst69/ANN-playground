@@ -83,7 +83,8 @@ class KerasModel:
         Parameters:
         - X: array-like, the data to make predictions on.
         """
-        return self.model.predict(X)
+        predictions = self.model.predict(X)
+        return [1 if pred >= 0.5 else 0 for pred in predictions]
 
     def save_model(self, filename):
         """
