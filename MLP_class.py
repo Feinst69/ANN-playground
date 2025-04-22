@@ -88,10 +88,3 @@ class MLP:
         plt.show()
 
         return training_history    
-    
-    
-    
-
-    
-
-
