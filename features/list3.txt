@@ -1,0 +1,4 @@
+'Curricular units 1st sem (approved)',
+'Curricular units 1st sem (grade)',
+'Tuition fees up to date',
+'Scholarship holder'
