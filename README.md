@@ -1,8 +1,4 @@
-# ANN-playground
-
-# :poop: :bug: :bulb: :lipstick: :bento: :coffin:
-
-# :coffin: :boom: :ambulance: :goal_net: :wheelchair: :hammer: :building_construction: :construction_worker:   
+# ANN-playground 
 
 ## Veille Technique
 
